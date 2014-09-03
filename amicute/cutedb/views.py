@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.contrib.auth import get_user_model
 
-
 from django.views.generic.edit import CreateView
+
+from .forms import UserCreationForm
 # Create your views here.
 
 
@@ -14,7 +15,7 @@ class UnauthorizedHomePageView(TemplateView):
 
 
 class Register(CreateView):
-    model = get_user_model()
     template_name = 'register.html'
-    fields = ['username', 'password', 'email', 'birth_day']
+    form_class = UserCreationForm
+    model = get_user_model()
     success_url = '/'
