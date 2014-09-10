@@ -8,7 +8,10 @@ class Post(models.Model):
     up_votes = models.IntegerField()
     down_votes = models.IntegerField()
     post_date = models.DateTimeField(auto_now_add = True)
-
+    image = models.ImageField("Image", upload_to="images/")
+    file_size = models.IntegerField()
+    file_type = models.CharField(max_length=100)
+    flags = models.ForeignKey('Report')
 
 class User(AbstractUser):
     profile_picture = models.ImageField("Image", upload_to="images/")
@@ -26,13 +29,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
-
-class Image(models.Model):
-    post = models.OneToOneField(Post, primary_key=True)
-    image = models.ImageField("Image", upload_to="images/")
-    file_size = models.IntegerField()
-    file_type = models.CharField(max_length=100)
-    flags = models.ForeignKey('Report')
 
 class Comment(models.Model):
     post = models.ForeignKey(Post)
