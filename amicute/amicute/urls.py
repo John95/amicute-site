@@ -21,4 +21,4 @@ urlpatterns = patterns('',
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, name='login'),
     url(r'^home/$', AuthorizedHomePageView.as_view(), name='authorized_homepage'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'logout.html'}),
-)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

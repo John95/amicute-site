@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from cutedb.models import Post
 User = get_user_model()
 
+
 class UserCreationForm(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given username and
@@ -67,4 +68,3 @@ class CreatePostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['image']
-

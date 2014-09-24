@@ -44,18 +44,19 @@ class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
     form_class = CreatePostForm
     fields = ['image']
+
     def get_success_url(self):
-        return reverse('display_post',kwargs={'post_id':self.object.id,})
+        return reverse('display_post', kwargs={'post_id': self.object.id})
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super(CreatePost, self).form_valid(form)
 
-
     def get_context_data(self, **kwargs):
         context = super(CreatePost, self).get_context_data(**kwargs)
         context['username'] = self.request.user.username
         return context
+
 
 class DisplayPost(LoginRequiredMixin, DetailView):
     model = Post
