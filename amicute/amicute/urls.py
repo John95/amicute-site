@@ -8,10 +8,12 @@ from cutedb.views import AuthorizedHomePageView
 from cutedb.views import UnauthorizedHomePageView
 from cutedb.views import Register
 from cutedb.views import CreatePost
+from cutedb.views import DisplayPost
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^post/(?P<post_id>\d+)/$', DisplayPost.as_view(), name='display_post'),
     url(r'^post/', CreatePost.as_view(), name='post'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', UnauthorizedHomePageView.as_view(), name='unauthorized_homepage'),
