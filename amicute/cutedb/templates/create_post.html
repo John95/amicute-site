@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Create Post</title>
+</head>
+
+<body>
+{{ username }} sucks
+
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Create" />
+</form>
+</body>
+</html>

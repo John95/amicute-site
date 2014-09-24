@@ -3,6 +3,7 @@ from django import forms
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.contrib.auth import get_user_model
 
+from cutedb.models import Post
 User = get_user_model()
 
 class UserCreationForm(forms.ModelForm):
@@ -60,4 +61,10 @@ class UserCreationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+
+class CreatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['image']
 

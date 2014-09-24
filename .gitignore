@@ -40,3 +40,6 @@ Icon
 
 db.sqlite3
 
+# ignore pictures folder
+amicute/media/
+

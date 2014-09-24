@@ -5,13 +5,13 @@ from django.utils.translation import ugettext_lazy as _
 # Create your models here.
 class Post(models.Model):
     owner = models.ForeignKey('User')
-    up_votes = models.IntegerField()
-    down_votes = models.IntegerField()
+    up_votes = models.IntegerField(default=0)
+    down_votes = models.IntegerField(default=0)
     post_date = models.DateTimeField(auto_now_add = True)
     image = models.ImageField("Image", upload_to="images/")
-    file_size = models.IntegerField()
-    file_type = models.CharField(max_length=100)
-    flags = models.ForeignKey('Report')
+#   file_size = models.IntegerField()
+#   file_type = models.CharField(max_length=100)
+    flags = models.ForeignKey('Report', blank=True, null=True)
 
 class User(AbstractUser):
     profile_picture = models.ImageField("Image", upload_to="images/")
