@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Display Post</title>
-</head>
+{% extends "base.html" %}
+{% block title %}
+Display Post
+{% endblock title %}
 
-<body>
+{% block content %}
 {{ post.owner.username }}
 
 <img src="{{MEDIA_URL}}{{post.image}}/">
 
-
-</body>
-</html>
+{% endblock content %}

@@ -1,9 +1,8 @@
-<html>
-<head>
-<title>Home</title>
-</head>
+{% extends "base.html" %}
+{% block title %}
+Home
+{% endblock title %}
 
-<body>
+{% block content %}
 Hello {{ username }}!
-</body>
-</html>
+{% endblock content %}
